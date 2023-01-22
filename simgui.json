@@ -1,13 +1,25 @@
 {
   "HALProvider": {
+    "Other Devices": {
+      "SPARK MAX [0]": {
+        "header": {
+          "open": true
+        }
+      },
+      "SPARK MAX [1]": {
+        "header": {
+          "open": true
+        }
+      }
+    },
     "PWM Outputs": {
       "window": {
         "visible": true
       }
     },
     "RoboRIO": {
-      "window": {
-        "visible": true
+      "6V Rail": {
+        "open": true
       }
     }
   },
@@ -22,14 +34,14 @@
     }
   },
   "NetworkTables": {
-    "Persistent Values": {
-      "open": false
-    },
-    "Retained Values": {
-      "open": false
-    },
     "transitory": {
+      "FMSInfo": {
+        "open": true
+      },
       "LiveWindow": {
+        ".status": {
+          "open": true
+        },
         "DriveTrain": {
           "Drive": {
             "open": true
@@ -42,9 +54,6 @@
         "open": true
       },
       "SmartDashboard": {
-        "Autonomous Command": {
-          "open": true
-        },
         "open": true
       }
     }
