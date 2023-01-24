@@ -13,6 +13,7 @@
 package frc.robot.subsystems;
 
 
+import frc.robot.Robot;
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -76,9 +77,9 @@ rightMotors = new MotorControllerGroup(rightBackMotor, rightFrontMotor  );
 
 differentialDrive1 = new DifferentialDrive(leftMotors, rightMotors);
  addChild("Differential Drive 1",differentialDrive1);
- differentialDrive1.setSafetyEnabled(true);
-differentialDrive1.setExpiration(0.1);
-differentialDrive1.setMaxOutput(1.0);
+ //differentialDrive1.setSafetyEnabled(true);
+//differentialDrive1.setExpiration(0.1);
+//differentialDrive1.setMaxOutput(1.0);
 
 
 
@@ -102,7 +103,8 @@ differentialDrive1.setMaxOutput(1.0);
 
     public void drive(double leftDrive, double rightDrive)
     {
-        //
+        // 
+        Robot.printYellow(leftDrive + "," + rightDrive);
         differentialDrive1.tankDrive(leftDrive, rightDrive);
     }
 
