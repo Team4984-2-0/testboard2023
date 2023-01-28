@@ -14,10 +14,12 @@ package frc.robot;
 
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
+import edu.wpi.first.vision.VisionRunner.Listener;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.TankDrive;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -30,7 +32,7 @@ public class Robot extends TimedRobot {
 
     private Command m_autonomousCommand;
 
-    private RobotContainer m_robotContainer;
+    public static RobotContainer m_robotContainer;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -77,12 +79,13 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void autonomousInit() {
-        m_autonomousCommand = m_robotContainer.getAutonomousCommand();
+        /*m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
         // schedule the autonomous command (example)
         if (m_autonomousCommand != null) {
             m_autonomousCommand.schedule();
         }
+        */
     }
 
     /**
@@ -98,9 +101,9 @@ public class Robot extends TimedRobot {
         // teleop starts running. If you want the autonomous to
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        if (m_autonomousCommand != null) {
-            m_autonomousCommand.cancel();
-        }
+        //if (m_autonomousCommand != null) {
+        //    m_autonomousCommand.cancel();
+       // }
     }
 
     /**
@@ -108,6 +111,11 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+
+
+        
+
+
     }
 
     @Override
@@ -121,6 +129,13 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void testPeriodic() {
+    }
+
+
+    public static void printYellow(String texts){
+        // I added this for debugging purposes so we can distinguish OUR text from the auto-generated text by the robot.
+
+        System.out.println((char)27 + "[33m" + texts + (char)27 + "[37m"); // Let's see if we can get some things printed
     }
 
 }
