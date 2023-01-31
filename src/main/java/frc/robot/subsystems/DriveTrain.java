@@ -105,7 +105,7 @@ differentialDrive1 = new DifferentialDrive(leftMotors, rightMotors);
     {
        
         //Robot.printYellow(leftDrive + "," + rightDrive);
-        differentialDrive1.tankDrive(leftDrive, rightDrive);
+        differentialDrive1.tankDrive(leftDrive, -rightDrive);
     }
 
     
