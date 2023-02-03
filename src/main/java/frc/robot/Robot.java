@@ -15,10 +15,17 @@ package frc.robot;
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.vision.VisionRunner.Listener;
+
+import com.kauailabs.navx.frc.AHRS;
+
 import edu.wpi.first.hal.HAL;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.MoveWinch;
 import frc.robot.commands.TankDrive;
 
 /**
@@ -44,6 +51,8 @@ public class Robot extends TimedRobot {
         // autonomous chooser on the dashboard.
         m_robotContainer = RobotContainer.getInstance();
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
+
+        
     }
 
     /**
@@ -86,6 +95,7 @@ public class Robot extends TimedRobot {
             m_autonomousCommand.schedule();
         }
         */
+
     }
 
     /**
@@ -111,10 +121,10 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-
-
+        var command = new CommandXboxController(m_robotContainer.getMoveAround().getPort());
+        command.rightBumper().onTrue(new TankDrive(m_robotContainer.getMoveAround(), m_robotContainer.getInstance().m_driveTrain));
         
-
+        
 
     }
 
